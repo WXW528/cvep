@@ -12,7 +12,7 @@ pip install tabulate
 pip install tensorboard
 ```
 下载内置缺省数据集：
-到百度网盘（https://pan.baidu.com/s/1ntIi2Op）下面下载Market1501数据集的Market-1501-v15.09.15.zip文件，将其解压到./datasets/目录下，目录结构如下所示：
+到[百度网盘](https://pan.baidu.com/s/1ntIi2Op)下面下载Market1501数据集的Market-1501-v15.09.15.zip文件，将其解压到./datasets/目录下，目录结构如下所示：
 datasets/
     Market-1501-v15.09.15/
         bounding_box_test/
