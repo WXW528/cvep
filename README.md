@@ -1,7 +1,7 @@
 # cvep
 Computer Vision Experiment Platform
 
-本项目以京东AI的fast-reid（https://github.com/JDAI-CV/fast-reid）为基础进行开发，重点扩展在智慧交通领域的应用。
+本项目以京东AI的[fast-reid]（https://github.com/JDAI-CV/fast-reid）为基础进行开发，重点扩展在智慧交通领域的应用。
 首先安装所需软件：
 ```base
 pip install yacs
