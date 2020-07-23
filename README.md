@@ -1,6 +1,7 @@
 # cvep
 Computer Vision Experiment Platform
 
+## 系统安装
 本项目以京东AI的[fast-reid](https://github.com/JDAI-CV/fast-reid)为基础进行开发，重点扩展在智慧交通领域的应用。
 
 首先安装所需软件：
@@ -25,4 +26,16 @@ datasets/
 python ./tools/train_net.py --config-file ./configs/Market1501/bagtricks_R50.yml MODEL.DEVICE "cuda:3"
 ```
 这里指定使用第四块GPU进行训练。
+
+## 自动聚类
+在某个目录下会有很多文件，其中绝大部分均属于同一类，但是有个别文件不属于同一类别。程序的任务就是找出不属于同一类别的图片挑出来。
+
+程序的入口点为./tools/train_net.py，由于采用了一个比较复杂的架构，具体训练相关代码在fastreid/engine/train_loop.py中的SimpleTrainer.run_step方法中。
+
+### 数据集
+
+### 网络输出
+
+### 代价函数
+
 
