@@ -1,0 +1,12 @@
+_BASE_: "../Base-AGW.yml"
+
+MODEL:
+  BACKBONE:
+    WITH_IBN: True
+    PRETRAIN_PATH: "/home/liaoxingyu2/lxy/.cache/torch/checkpoints/resnet50_ibn_a.pth.tar"
+
+DATASETS:
+  NAMES: ("DukeMTMC",)
+  TESTS: ("DukeMTMC",)
+
+OUTPUT_DIR: "logs/dukemtmc/agw_R50-ibn"
