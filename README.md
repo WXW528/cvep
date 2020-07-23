@@ -13,10 +13,12 @@ pip install tensorboard
 ```
 下载内置缺省数据集：
 到[百度网盘](https://pan.baidu.com/s/1ntIi2Op)下面下载Market1501数据集的Market-1501-v15.09.15.zip文件，将其解压到./datasets/目录下，目录结构如下所示：
+```bash
 datasets/
     Market-1501-v15.09.15/
         bounding_box_test/
         bounding_box_train/
+```
 运行缺省训练程序：
 ```bash
 python ./tools/train_net.py --config-file ./configs/Market1501/bagtricks_R50.yml MODEL.DEVICE "cuda:3"
