@@ -87,11 +87,6 @@ class WxsDsm(object):
         将整理过的无锡所测集图片文件和正确品牌名称导出供刘兵做集成测试
         '''
         brand_idx_to_brand_name_dict = WxsDsm.get_brand_idx_to_brand_name_dict()
-        for k, v in brand_idx_to_brand_name_dict.items():
-            print('### {0} => {1};'.format(k, v))
-        i_debug = 1
-        if 1 == i_debug:
-            return
         with open('/media/zjkj/work/yantao/fgvc/dcl_onnx/datasets/'\
                     'CUB_200_2011/anno/bid_brand_test_ds.txt', 'r', \
                     encoding='utf-8') as fd:
@@ -103,7 +98,8 @@ class WxsDsm(object):
                 img_file = arrs_b[-1]
                 sim_bmy_id = int(arrs_a[1])
                 brand_idx = int(arrs_a[2])
-                print('{0}    => {1};'.format(img_file, brand_idx))
+                brand_name = brand_idx_to_brand_name_dict[brand_idx]
+                print('{0}    => {1};'.format(img_file, brand_name))
 
     @staticmethod
     def get_brand_idx_to_brand_name_dict():
