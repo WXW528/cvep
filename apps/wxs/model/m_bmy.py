@@ -11,7 +11,7 @@ class MBmy(object):
         '''
         获取bmy_code对应bmy_id的对应关系
         '''
-        query_cond = {'source_type': 1}
+        query_cond = {}
         fields = {'bmy_id': 1, 'bmy_code': 1}
         return MMongoDb.convert_recs(MMongoDb.db['t_bmy']\
                     .find(query_cond, fields))
