@@ -16,19 +16,24 @@ class WxsDsm(object):
         print('读入原始年款编号和简化年款编号字典')
         bmy_code_bmy_id_dict = CBmy.get_bmy_code_bmy_id_dict()
         print('读出bmy_code和bmy_id对应关系字典')
-        with open('./work/wt_img_bmy_code.txt', 'r', encoding='utf-8') as fd:
-            for line in fd:
-                line = line.strip()
-                arrs_a = line.split('*')
-                img_file = arrs_a[0]
-                bmy_code = '{0} '.format(arrs_a[1])
-                if bmy_code in bmy_code_bmy_id_dict:
-                    org_bmy_id = bmy_code_bmy_id_dict[bmy_code] - 1
-                    print('##: {0}*{1};'.format(img_file, org_bmy_id))
-                    if org_bmy_id not in bmy_org_sim_dict:
-                        print('Error: {0} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1'.format(org_bmy_id))
-                else:
-                    print('@@@@@@@@@@@@@@@@@@@@@@@@ {0};'.format(bmy_code))
+        img_file_to_full_fn_dict = WxsDsm.get_wxs_tds_img_file_full_fn_dict()
+        print('获取图片文件名和全路么名字典')
+        with open('./work/addition_ds.txt', 'w+', encoding='utf-8') as wfd:
+            with open('./work/wt_img_bmy_code.txt', 'r', encoding='utf-8') as fd:
+                for line in fd:
+                    line = line.strip()
+                    arrs_a = line.split('*')
+                    img_file = arrs_a[0]
+                    bmy_code = '{0} '.format(arrs_a[1])
+                    if bmy_code in bmy_code_bmy_id_dict:
+                        org_bmy_id = bmy_code_bmy_id_dict[bmy_code] - 1
+                        print('##: {0}*{1};'.format(img_file, org_bmy_id))
+                        if org_bmy_id not in bmy_org_sim_dict:
+                            print('Error: {0} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1'.format(org_bmy_id))
+                        full_fn = img_file_to_full_fn_dict[img_file]
+                        wfd.write('{0}*{1}\n'.format(full_fn, org_bmy_id))
+                    else:
+                        print('@@@@@@@@@@@@@@@@@@@@@@@@ {0};'.format(bmy_code))
 
     @staticmethod
     def get_bmy_org_sim_dict():
@@ -42,6 +47,23 @@ class WxsDsm(object):
                 arrs_a = line.split(':')
                 bmy_org_sim_dict[int(arrs_a[0])] = int(arrs_a[1])
         return bmy_org_sim_dict
+
+    @staticmethod
+    def get_wxs_tds_img_file_full_fn_dict():
+        '''
+        获取在/media/zjkj/work/yantao/zjkj/test_ds目录下图片文件名和
+        全路径名字典
+        '''
+        img_file_to_full_fn_dict = {}
+        base_path = Path('/media/zjkj/work/yantao/zjkj/test_ds')
+        for sub1 in base_path.iterdir():
+            for sub2 in sub1.iterdir():
+                for file_obj in sub2.iterdir():
+                    full_fn = str(file_obj)
+                    arrs_a = full_fn.split('/')
+                    img_file = arrs_a[-1]
+                    img_file_to_full_fn_dict[img_file] = full_fn
+        return img_file_to_full_fn_dict
 
     @staticmethod
     def generate_txt_by_wxs_tds_ok_images():
