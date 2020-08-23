@@ -18,7 +18,7 @@ class WxsDsm(object):
                 line = line.strip()
                 arrs_a = line.split('*')
                 img_file = arrs_a[0]
-                bmy_code = arrs_a[1]
+                bmy_code = '{0} '.format(arrs_a[1])
                 if bmy_code in bmy_code_bmy_id_dict:
                     org_bmy_id = bmy_code_bmy_id_dict[bmy_code] - 1
                     print('##: {0}*{1};'.format(img_file, org_bmy_id))
