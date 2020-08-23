@@ -1,5 +1,6 @@
 #
 from pathlib import Path
+from apps.wxs.controller.c_bmy import CBmy
 
 class WxsDsm(object):
     def __init__(self):
@@ -11,6 +12,12 @@ class WxsDsm(object):
         '''
         从无锡所图片文件和对应的年款编中，求出对应的简化年款编号和品牌索引号
         '''
+        bmy_code_bmy_id_dict = CBmy.get_bmy_code_bmy_id_dict()
+        for k, v in bmy_code_bmy_id_dict.items():
+            print('### {0}: {1};'.format(k, v))
+        i_debug = 1
+        if 1 == i_debug:
+            return 
         with open('./work/wt_img_bmy_code.txt', 'r', encoding='utf-8') as fd:
             for line in fd:
                 line = line.strip()
