@@ -5,6 +5,20 @@ class WxsDsm(object):
     def __init__(self):
         self.refl = 'apps.wxs.WxsDsm'
 
+    
+    @staticmethod
+    def generate_ds_from_wxs_tds_ibc():
+        '''
+        从无锡所图片文件和对应的年款编中，求出对应的简化年款编号和品牌索引号
+        '''
+        with open('./work/wt_img_bmy_code.txt', 'r', encoding='utf-8') as fd:
+            for line in fd:
+                line = line.strip()
+                arrs_a = line.split('*')
+                img_file = arrs_a[0]
+                bmy_code = arrs_a[1]
+                print('{0}: {1};'.format(img_file, bmy_code))
+
     @staticmethod
     def generate_txt_by_wxs_tds_ok_images():
         '''

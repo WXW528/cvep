@@ -9,4 +9,5 @@ class WxsApp(object):
         print('无锡所应用...')
         run_mode = 1
         if 1 == run_mode:
-            WxsDsm.generate_txt_by_wxs_tds_ok_images()
+            #WxsDsm.generate_txt_by_wxs_tds_ok_images()
+            WxsDsm.generate_ds_from_wxs_tds_ibc()
