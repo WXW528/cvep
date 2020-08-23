@@ -13,12 +13,9 @@ class WxsDsm(object):
         从无锡所图片文件和对应的年款编中，求出对应的简化年款编号和品牌索引号
         '''
         bmy_org_sim_dict = WxsDsm.get_bmy_org_sim_dict()
-        for k, v in bmy_org_sim_dict.items():
-            print("# {0}: {1};".format(k, v))
-        i_debug = 1
-        if 1 == i_debug:
-            return
+        print('读入原始年款编号和简化年款编号字典')
         bmy_code_bmy_id_dict = CBmy.get_bmy_code_bmy_id_dict()
+        print('读出bmy_code和bmy_id对应关系字典')
         with open('./work/wt_img_bmy_code.txt', 'r', encoding='utf-8') as fd:
             for line in fd:
                 line = line.strip()
@@ -28,6 +25,8 @@ class WxsDsm(object):
                 if bmy_code in bmy_code_bmy_id_dict:
                     org_bmy_id = bmy_code_bmy_id_dict[bmy_code] - 1
                     print('##: {0}*{1};'.format(img_file, org_bmy_id))
+                    if org_bmy_id not in bmy_org_sim_dict:
+                        print('Error: {0} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1'.format(org_bmy_id))
                 else:
                     print('@@@@@@@@@@@@@@@@@@@@@@@@ {0};'.format(bmy_code))
 
