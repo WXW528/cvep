@@ -34,10 +34,10 @@ class WxsDsm(object):
     @staticmethod
     def get_bmy_org_sim_dict():
         '''
-        从../../w1/bmy_org_sim_dict.txt中读出内容初始化字典
+        从/media/zjkj/work/yantao/w1/bmy_org_sim_dict.txt中读出内容初始化字典
         '''
         bmy_org_sim_dict = {}
-        with open('../../w1/bmy_org_sim_dict.txt', 'r', encoding='utf-8') as fd:
+        with open('/media/zjkj/work/yantao/w1/bmy_org_sim_dict.txt', 'r', encoding='utf-8') as fd:
             for line in fd:
                 line = line.strip()
                 arrs_a = line.split(':')
