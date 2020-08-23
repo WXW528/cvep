@@ -12,6 +12,12 @@ class WxsDsm(object):
         '''
         从无锡所图片文件和对应的年款编中，求出对应的简化年款编号和品牌索引号
         '''
+        bmy_org_sim_dict = WxsDsm.get_bmy_org_sim_dict()
+        for k, v in bmy_org_sim_dict.items():
+            print("# {0}: {1};".format(k, v))
+        i_debug = 1
+        if 1 == i_debug:
+            return
         bmy_code_bmy_id_dict = CBmy.get_bmy_code_bmy_id_dict()
         with open('./work/wt_img_bmy_code.txt', 'r', encoding='utf-8') as fd:
             for line in fd:
@@ -24,6 +30,19 @@ class WxsDsm(object):
                     print('##: {0}*{1};'.format(img_file, org_bmy_id))
                 else:
                     print('@@@@@@@@@@@@@@@@@@@@@@@@ {0};'.format(bmy_code))
+
+    @staticmethod
+    def get_bmy_org_sim_dict():
+        '''
+        从../../w1/bmy_org_sim_dict.txt中读出内容初始化字典
+        '''
+        bmy_org_sim_dict = {}
+        with open('../../w1/bmy_org_sim_dict.txt', 'r', encoding='utf-8') as fd:
+            for line in fd:
+                line = line.strip()
+                arrs_a = line.split(':')
+                bmy_org_sim_dict[int(arrs_a[0])] = int(arrs_a[1])
+        return bmy_org_sim_dict
 
     @staticmethod
     def generate_txt_by_wxs_tds_ok_images():
