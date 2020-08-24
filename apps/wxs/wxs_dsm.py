@@ -18,7 +18,7 @@ class WxsDsm(object):
         print('读出bmy_code和bmy_id对应关系字典')
         img_file_to_full_fn_dict = WxsDsm.get_wxs_tds_img_file_full_fn_dict()
         print('获取图片文件名和全路么名字典')
-        with open('./work/addition_ds.txt', 'w+', encoding='utf-8') as wfd:
+        with open('./work/addition_ds_0824.txt', 'w+', encoding='utf-8') as wfd:
             with open('./work/wt_img_bmy_code_0824.txt', 'r', encoding='utf-8') as fd:
                 for line in fd:
                     line = line.strip()
