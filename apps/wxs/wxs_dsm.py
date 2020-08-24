@@ -19,7 +19,7 @@ class WxsDsm(object):
         img_file_to_full_fn_dict = WxsDsm.get_wxs_tds_img_file_full_fn_dict()
         print('获取图片文件名和全路么名字典')
         with open('./work/addition_ds.txt', 'w+', encoding='utf-8') as wfd:
-            with open('./work/wt_img_bmy_code.txt', 'r', encoding='utf-8') as fd:
+            with open('./work/wt_img_bmy_code_0824.txt', 'r', encoding='utf-8') as fd:
                 for line in fd:
                     line = line.strip()
                     arrs_a = line.split('*')
@@ -33,7 +33,7 @@ class WxsDsm(object):
                         full_fn = img_file_to_full_fn_dict[img_file]
                         wfd.write('{0}*{1}\n'.format(full_fn, org_bmy_id))
                     else:
-                        print('@@@@@@@@@@@@@@@@@@@@@@@@ {0};'.format(bmy_code))
+                        print('@@@@@@@@@@@@@@@@@@@@@@@@ 错误年款编号：{0};'.format(bmy_code))
 
     @staticmethod
     def get_bmy_org_sim_dict():
