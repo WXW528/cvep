@@ -11,7 +11,7 @@ class WxsApp(object):
         MMongoDb._initialize()
         run_mode = 2
         if 1 == run_mode:
-            #WxsDsm.generate_txt_by_wxs_tds_ok_images()
-            WxsDsm.generate_ds_from_wxs_tds_ibc()
+            WxsDsm.generate_txt_by_wxs_tds_ok_images()
+            #WxsDsm.generate_ds_from_wxs_tds_ibc()
         elif 2 == run_mode:
             WxsDsm.generate_wxs_tds_for_integration_test()

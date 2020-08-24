@@ -70,8 +70,8 @@ class WxsDsm(object):
         '''
         将无锡所测试集中标注出年款的图片文件名和年款编号写进文件文件中
         '''
-        base_path = Path('E:/work/tcv/temp/wlok')
-        with open('./work/wt_img_bmy_code.txt', 'w+', encoding='utf-8') as wfd:
+        base_path = Path('E:/work/tcv/temp/d20200824_1/1')
+        with open('./work/wt_img_bmy_code_0824.txt', 'w+', encoding='utf-8') as wfd:
             for img_obj in base_path.iterdir():
                 full_fn = str(img_obj)
                 arrs_a = full_fn.split('-')
