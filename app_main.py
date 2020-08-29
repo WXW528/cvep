@@ -20,7 +20,7 @@ def run_siamese_app(args={}):
     app.startup(args)
 
 def main(args={}):
-    mode = MODE_WXS_APP
+    mode = MODE_SIAMESE_APP
     if MODE_WXS_APP == mode:
         run_wxs_app(args)
     elif MODE_DCL_APP == mode:
