@@ -24,7 +24,7 @@ from apps.siamese.contrastive_loss import ContrastiveLoss
 class SiameseApp(object):
     def __init__(self):
         self.refl = 'apps.siamese.SiameseApp'
-        self.pkl_file = '../../work/siamese/vehicles/siamese.pkl'
+        self.pkl_file = './work/siamese/vehicles/siamese.pkl'
 
     def startup(self, args={}):
         print('Siamese Network App v0.0.2')
