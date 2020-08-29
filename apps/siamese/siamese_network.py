@@ -4,8 +4,8 @@ from torch import nn
 from torchvision import models
 
 pretrained_model = {
-    'resnet50' : './models/pretrained/resnet50-19c8e357.pth',
-    'senet154' : './models/pretrained/senet154-c7b49a05.pth'
+    'resnet50' : '../../work/pretrained/resnet50-19c8e357.pth',
+    'senet154' : '../../work/pretrained/senet154-c7b49a05.pth'
 }
 
 class SiameseNetwork(nn.Module):

@@ -15,7 +15,7 @@ class SiameseConfig(object):
     img_w = 224
     img_h = 224
     img_channel = 3
-    training_dir = "./datasets/vehicles/training/"
-    testing_dir = "./datasets/vehicles/testing/"
+    training_dir = "../../datasets/siamese/vehicles/training/"
+    testing_dir = "../../datasets/siamese/vehicles/testing/"
     train_batch_size = 32
-    train_number_epochs = 10000 # 100
+    train_number_epochs = 10 # 100
